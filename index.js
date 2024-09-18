@@ -25,6 +25,7 @@ let client = 0;
 
 server.on("connection", (socket) => {
 
+    console.log("connection");
     let json = {
         connection_id: client
     };
