@@ -57,7 +57,7 @@ http.createServer((req, res) => {
         res.writeHead(200);
         res.end(data);
     });
-}).listen(2000);
+}).listen();
 
 
 console.log("ok");
