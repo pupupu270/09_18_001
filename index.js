@@ -26,7 +26,7 @@ http.createServer((req, res) => {
 
     if (req.url == "/")
         req.url = "/index.html";
-
+<!--
     fs.readFile(__dirname +　req.url, (err, data) => {
 
         if (err == null)
@@ -36,6 +36,17 @@ http.createServer((req, res) => {
             res.end();
         }
     });
+                  -->
+
+                      res.writeHead(200);
+res.end(
+<html>
+<head></head>
+    <body>hit</body>
+    </html>
+
+    
+);
 
   
 
