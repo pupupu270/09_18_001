@@ -53,8 +53,7 @@ let fs = require("fs");
 
 http.createServer((req, res) => {
 
-    fs.readFile("html/index.html", (err, data) => {
-
+   fs.readFile(__dirname + "/html" + req.url, (err, data) => {
         res.writeHead(200);
         res.end(data);
     });
