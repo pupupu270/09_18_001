@@ -27,7 +27,7 @@ http.createServer((req, res) => {
     if (req.url == "/")
         req.url = "/index.html";
 
-    fs.readFile(__dirname + "/html" + req.url, (err, data) => {
+    fs.readFile(__dirname +　req.url, (err, data) => {
 
         if (err == null)
         {
