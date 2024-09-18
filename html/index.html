@@ -20,6 +20,10 @@
                     console.log("connect");
                 });
 
+                socket.addEventListener("error",(e)=>{
+                    console.log(e);
+                });
+
             });
               
 
