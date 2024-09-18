@@ -19,6 +19,10 @@
 
                 let ws_id = null;
 
+                socket.addEventListener("open",()=>{
+                    console.log("connect");
+                });
+
 
                 socket.addEventListener("message", e => {
                     let a = JSON.parse(e.data);
