@@ -1,24 +1,9 @@
 
 
 
-require("dotenv").config();
-
-const  {Client} = require("pg");
-
-const sql= new Client({
-connectionString:process.env.CONNECTION_STRING
-});
-sql.connect();
-
-sql.end();
-
-
-
 
 let websocket = require("ws");
 let server = new websocket.Server({port: 2001});
-
-let client = 0;
 
 
 
@@ -26,24 +11,7 @@ let client = 0;
 server.on("connection", (socket) => {
 
     console.log("connection");
-    let json = {
-        connection_id: client
-    };
-    socket.send(JSON.stringify(json));
-    client++;
-    
-
-
-
-    socket.on("message", ms => {
-        let a = JSON.parse(ms.toString());
-        if (a.message != "")
-        {
-            server.clients.forEach((client) => {     
-                client.send(JSON.stringify(a));
-            });
-        }
-    });
+   
 });
 
 
