@@ -16,7 +16,7 @@ sql.end();
 
 
 let websocket = require("ws");
-let server = new websocket.Server({host:"https://zero9-18-001.onrender.com",port: 2001});
+let server = new websocket.Server({port: 2001});
 
 let client = 0;
 
