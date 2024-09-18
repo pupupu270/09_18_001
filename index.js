@@ -51,14 +51,26 @@ server.on("connection", (socket) => {
 let http = require("http");
 let fs = require("fs");
 
+
+
 http.createServer((req, res) => {
 
-   fs.readFile(__dirname + "/html" + req.url, (err, data) => {
-        res.writeHead(200);
-        res.end(data);
-    });
-}).listen(2000);
+    if (req.url == "/")
+        req.url = "/index.html";
 
+    fs.readFile(__dirname + "/html" + req.url, (err, data) => {
+
+        if (err == null)
+        {
+            res.writeHead(200);
+            res.write(data);
+            res.end();
+        }
+    });
+
+  
+
+}).listen(2000);
 
 console.log("ok");
 
