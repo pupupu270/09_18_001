@@ -15,91 +15,20 @@
                 let socket = new WebSocket("wss://zero9-18-001.onrender.com");
 
 
-                let chat_archive = ["", ""];
-
-                let ws_id = null;
-
+            
                 socket.addEventListener("open",()=>{
                     console.log("connect");
                 });
 
-
-                socket.addEventListener("message", e => {
-                    let a = JSON.parse(e.data);
-
-                    if (ws_id == null)
-                    {
-                        ws_id = a.connection_id;
-                    } else {
-
-                        chat_archive[0] += a.id + "\n";
-                        chat_archive[1] += a.message + "\n";
-                        document.getElementById("id").innerText = chat_archive[0];
-
-                        document.getElementById("chat").innerText = chat_archive[1];
-                    }
-
-                });
-
-
-                document.getElementById("sender").addEventListener("click", () => {
-                    send_message();
-                });
-
-                document.getElementById("chat_message").addEventListener("keydown", (e) => {
-
-                    if (e.key == "Enter")
-                        send_message();
-
-                });
-
-
-                function send_message() {
-                    if (ws_id != null)
-                    {
-
-                        let json = {
-                            id: ws_id,
-                            message: document.getElementById("chat_message").value,
-                        };
-
-                        socket.send(JSON.stringify(json));
-                        document.getElementById("chat_message").value = null;
-
-                    }
-                }
-
             });
-            
+              
+
+
 
         </script>
     </head>
 
-    <body style="text-align:center">
-
-        <div>test of message exchange</div>
-
-        <br><br>
-        <div>
-            message
-            <br>
-            <input id="chat_message"/>
-
-            <div> <span id="sender" style ="border:2px solid red;padding:0 30px 0 30px;cursor:pointer">ok</span></div>
-        </div>
-
-        <br><br>
-        <div>
-            chat field<br>
-
-            <table style="border:1px solid green; width:50%;margin:auto">
-
-                <td id="id"></td><td id ="chat"></td>
-            </table>
-        </div>
-
-<div id ="log"></div>
-        <div><img src="asset/002.png"></div>
-
+<body>
+    test
     </body>
 </html>
